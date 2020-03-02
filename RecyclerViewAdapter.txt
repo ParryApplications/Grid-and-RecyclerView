@@ -1,0 +1,67 @@
+package com.example.paras.practice;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+
+public class RecyclerViewAdapter_class extends RecyclerView.Adapter<RecyclerViewAdapter_class.ViewHolder>
+{
+    private Context context;
+    private ArrayList<Model_class> list;
+
+    public RecyclerViewAdapter_class(Context context, ArrayList<Model_class> list) {
+        this.context = context;
+        this.list = list;
+    }
+
+    @NonNull
+    @Override
+    public RecyclerViewAdapter_class.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
+    {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout,parent,false);
+        return new ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull RecyclerViewAdapter_class.ViewHolder holder, int position)
+    {
+        final Model_class item = list.get(position);
+        holder.view_image_id.setImageResource(item.getModel_image_id());
+        holder.view_text_id.setText(item.getModel_text_id());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "Your Text is: "+item.getModel_text_id(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    @Override
+    public int getItemCount() {
+        return list.size();
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder
+    {
+
+        private ImageView view_image_id;
+        private TextView view_text_id;
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            view_image_id = (ImageView)itemView.findViewById(R.id.image_id);
+            view_text_id = (TextView)itemView.findViewById(R.id.text_id);
+        }
+    }
+}

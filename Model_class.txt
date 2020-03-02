@@ -1,0 +1,30 @@
+package com.example.paras.practice;
+
+public class Model_class
+{
+    private int model_image_id;
+    private String model_text_id;
+
+    public Model_class(int model_image_id, String model_text_id) {
+        this.model_image_id = model_image_id;
+        this.model_text_id = model_text_id;
+    }
+
+    public int getModel_image_id() {
+        return model_image_id;
+    }
+
+    public void setModel_image_id(int model_image_id) {
+        this.model_image_id = model_image_id;
+    }
+
+    public String getModel_text_id() {
+        return model_text_id;
+    }
+
+    public void setModel_text_id(String model_text_id) {
+        this.model_text_id = model_text_id;
+    }
+
+
+}

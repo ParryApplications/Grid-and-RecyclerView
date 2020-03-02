@@ -1,0 +1,50 @@
+package com.example.paras.practice;
+
+import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity{
+
+    private ArrayList<Model_class> arrayList;
+    private RecyclerViewAdapter_class myrv;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        arrayList = new ArrayList<>();
+        arrayList.add(new Model_class(R.drawable.black,"paras"));
+        arrayList.add(new Model_class(R.drawable.black,"mummy"));
+        arrayList.add(new Model_class(R.drawable.black,"papa"));
+        arrayList.add(new Model_class(R.drawable.black,"didi"));
+        arrayList.add(new Model_class(R.drawable.black,"bhai"));
+        arrayList.add(new Model_class(R.drawable.black,"behen"));
+        arrayList.add(new Model_class(R.drawable.black,"paras"));
+        arrayList.add(new Model_class(R.drawable.black,"paras"));
+        arrayList.add(new Model_class(R.drawable.black,"paras"));
+        arrayList.add(new Model_class(R.drawable.black,"paras"));
+        arrayList.add(new Model_class(R.drawable.black,"paras"));
+        arrayList.add(new Model_class(R.drawable.black,"paras"));
+        arrayList.add(new Model_class(R.drawable.black,"paras"));
+        arrayList.add(new Model_class(R.drawable.black,"paras"));
+        arrayList.add(new Model_class(R.drawable.black,"paras"));
+        arrayList.add(new Model_class(R.drawable.black,"paras"));
+        arrayList.add(new Model_class(R.drawable.black,"paras"));
+        arrayList.add(new Model_class(R.drawable.black,"paras"));
+        arrayList.add(new Model_class(R.drawable.black,"paras"));
+        arrayList.add(new Model_class(R.drawable.black,"paras"));
+        arrayList.add(new Model_class(R.drawable.black,"paras"));
+
+        RecyclerView rv = (RecyclerView)findViewById(R.id.rv);
+        myrv = new RecyclerViewAdapter_class(this,arrayList);
+        rv.setLayoutManager(new GridLayoutManager(this,2));
+//        rv.setLayoutManager(new LinearLayoutManager(this));
+        rv.setAdapter(myrv);
+     }
+}
